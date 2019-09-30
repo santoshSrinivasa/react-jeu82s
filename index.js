@@ -12,10 +12,23 @@ function Login(props){
 }
 class Welcome extends React.Component
 {
+  constructor(props){
+    super(props);
+    this.state={
+    name:'san',
+  }
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(event){
+    event.preventDefault();
+    this.setState({name:'santosh'});
+  }
   render(){
     return(
       <div>
-      <Signup username={this.props.name}/>
+      <h3>{this.props.name}</h3>
+      <Signup username={this.state.name}/>
+      <button onClick={this.handleClick}>click</button>
       </div>
     );
   }
